@@ -26,7 +26,6 @@
 ###### 4) Add the below code :
 
 '''python
-# Power BI Python Visual - 9-Visual Dashboard 
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
