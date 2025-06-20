@@ -25,7 +25,7 @@
 
 ###### 4) Add the below code :
 
-'''python
+```python
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -228,4 +228,4 @@ if len(numeric_cols) > 1:
         ax9.text(0.5, 0.5, 'Error in correlation', ha='center', va='center', fontsize=6)
 
 plt.show()
-'''
+```
