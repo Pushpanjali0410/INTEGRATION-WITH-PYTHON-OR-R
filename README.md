@@ -17,31 +17,37 @@
 
 ## DESCRIPTION
 
-###### 1) Open PowerBI and select the blank report. 
+###### 1) Open PowerBI and select the blank report . 
 
 ###### 2) Click on import data from excel and select financials dataset . 
 
-###### 3) Select the python visuals from visual pane.
+###### 3) Select the python visuals from visual pane .
 
 ###### 4) Add the below code :
 
 ```python
+# Power BI Python Visual - 9-Visual Dashboard (Matplotlib Only)
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
+# Get data from Power BI
 df = dataset.copy()
 
+# Debug: Show available columns
 print("Available columns:", df.columns.tolist())
 
+# Set up the visualization with a 3x3 grid
 plt.style.use('ggplot')  # Using built-in ggplot style instead of seaborn
 plt.rcParams['font.size'] = 7
 plt.rcParams['axes.titlesize'] = 8
 plt.rcParams['axes.labelsize'] = 7
 
+# Create figure with constrained layout
 fig = plt.figure(figsize=(20, 20), constrained_layout=True)
 gs = fig.add_gridspec(3, 3, hspace=0.5, wspace=0.4)
 
+# Create all 9 subplots
 ax1 = fig.add_subplot(gs[0, 0])  # Butterfly chart
 ax2 = fig.add_subplot(gs[0, 1])  # Box plot
 ax3 = fig.add_subplot(gs[0, 2])  # Pie chart
@@ -55,6 +61,7 @@ ax9 = fig.add_subplot(gs[2, 2])  # Correlation
 axes = [ax1, ax2, ax3, ax4, ax5, ax6, ax7, ax8, ax9]
 fig.suptitle('Financial Dashboard (Matplotlib Only)', y=1.02, fontsize=12)
 
+# Get numeric and categorical columns
 numeric_cols = df.select_dtypes(include=np.number).columns.tolist()
 cat_cols = df.select_dtypes(exclude=np.number).columns.tolist()
 
@@ -228,4 +235,6 @@ if len(numeric_cols) > 1:
         ax9.text(0.5, 0.5, 'Error in correlation', ha='center', va='center', fontsize=6)
 
 plt.show()
+
 ```
+###### 5) Add Title and save the dashboard .
